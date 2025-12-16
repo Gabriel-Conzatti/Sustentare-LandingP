@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sustentare Seguros</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<div class="conteudo-fixo">
+
+<header class="header">
+    <img src="assets/logo-sustentare.svg" class="logo" alt="Sustentare Seguros" />
+
+    <a class="btn-fale-icon" href="https://api.whatsapp.com/send?phone=555136541524" target="_blank">
+        <img src="assets/whatsapp.png" alt="WhatsApp" />
+    </a>
+</header>
+
+<main class="main">
+
+    <!-- CARROSSEL DE ESFERAS -->
+    <section class="carousel-esferas">
+        <div class="carousel-track">
+            <div class="item-esfera">
+                <img src="assets/foto-carro.svg" class="img-esfera" alt="Seguro Automóvel">
+                <h3>AUTOMÓVEL</h3>
+                <p>Proteja a sua conquista.<br>Seguro total com assistência<br>24h nas melhores seguradoras.</p>
+            </div>
+
+            <div class="item-esfera">
+                <img src="assets/foto-casa.svg" class="img-esfera" alt="Seguro Residencial">
+                <h3>RESIDENCIAL</h3>
+                <p>Sua residência protegida a partir<br>de R$29,90/mês com cobertura<br>de vendaval.</p>
+            </div>
+
+            <div class="item-esfera">
+                <img src="assets/foto-vida.svg" class="img-esfera" alt="Seguro de Vida">
+                <h3>VIDA</h3>
+                <p>Seguro de vida com assistência<br>médica online a partir de<br>R$19,90/mês.</p>
+            </div>
+            
+            <!-- Duplicados para efeito infinito -->
+            <div class="item-esfera">
+                <img src="assets/foto-carro.svg" class="img-esfera" alt="Seguro Automóvel">
+                <h3>AUTOMÓVEL</h3>
+                <p>Proteja a sua conquista.<br>Seguro total com assistência<br>24h nas melhores seguradoras.</p>
+            </div>
+
+            <div class="item-esfera">
+                <img src="assets/foto-casa.svg" class="img-esfera" alt="Seguro Residencial">
+                <h3>RESIDENCIAL</h3>
+                <p>Sua residência protegida a partir<br>de R$29,90/mês com cobertura<br>de vendaval.</p>
+            </div>
+
+            <div class="item-esfera">
+                <img src="assets/foto-vida.svg" class="img-esfera" alt="Seguro de Vida">
+                <h3>VIDA</h3>
+                <p>Seguro de vida com assistência<br>médica online a partir de<br>R$19,90/mês.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOTÃO DE AÇÃO -->
+    <a class="btn-fale" href="https://api.whatsapp.com/send?phone=555136541524" target="_blank">
+        FALE CONOSCO
+    </a>
+
+    <!-- MÉTRICAS -->
+    <section class="metricas">
+        <div class="metrica">
+            <img src="assets/clientes.svg" />
+            <p>Mais de<br><strong>60 mil</strong><br>Clientes</p>
+        </div>
+
+        <div class="metrica">
+            <img src="assets/escudo-check.svg" />
+            <p>Mais de<br><strong>75 mil</strong><br>Itens protegidos</p>
+        </div>
+    </section>
+
+    <!-- SEGURADORAS CARROSSEL -->
+    <section class="seguradoras">
+        <h3 class="seguradoras-titulo">Nossas Parceiras</h3>
+        <div class="seguradoras-carrossel">
+            <div class="seguradoras-track">
+                <div class="seguradora-item">
+                    <img src="assets/allianz.svg" alt="Allianz">
+                </div>
+                <div class="seguradora-item">
+                    <img src="assets/porto.svg" alt="Porto Seguro">
+                </div>
+                <div class="seguradora-item">
+                    <img src="assets/yelum.svg" alt="Yelum">
+                </div>
+                <div class="seguradora-item">
+                    <img src="assets/hdi.svg" alt="HDI">
+                </div>
+                
+                <!-- Duplicados para efeito infinito suave -->
+                <div class="seguradora-item">
+                    <img src="assets/allianz.svg" alt="Allianz">
+                </div>
+                <div class="seguradora-item">
+                    <img src="assets/porto.svg" alt="Porto Seguro">
+                </div>
+                <div class="seguradora-item">
+                    <img src="assets/yelum.svg" alt="Yelum">
+                </div>
+                <div class="seguradora-item">
+                    <img src="assets/hdi.svg" alt="HDI">
+                </div>
+                
+                <!-- Mais duplicados para loop perfeito -->
+                <div class="seguradora-item">
+                    <img src="assets/allianz.svg" alt="Allianz">
+                </div>
+                <div class="seguradora-item">
+                    <img src="assets/porto.svg" alt="Porto Seguro">
+                </div>
+                <div class="seguradora-item">
+                    <img src="assets/yelum.svg" alt="Yelum">
+                </div>
+                <div class="seguradora-item">
+                    <img src="assets/hdi.svg" alt="HDI">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULÁRIO -->
+    <section class="form-section">
+        <h2 class="form-title">SOLICITE UM ORÇAMENTO</h2>
+
+        <form class="form" id="form-orcamento">
+            <label for="nome">Nome <span class="required">*</span></label>
+            <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+            <span class="error-message" id="error-nome"></span>
+
+            <label for="email">Email <span class="required">*</span></label>
+            <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
+            <span class="error-message" id="error-email"></span>
+
+            <label for="telefone">Telefone <span class="required">*</span></label>
+            <input type="text" id="telefone" name="telefone" placeholder="(00) 00000-0000" maxlength="15" required>
+            <span class="error-message" id="error-telefone"></span>
+
+            <button type="submit" class="btn-enviar">Enviar</button>
+        </form>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-logo-section">
+            <img src="assets/logo-sustentare.svg" class="footer-logo" alt="Sustentare Seguros">
+            <p class="footer-slogan">Muito mais que seguro!</p>
+        </div>
+
+        <div class="footer-contatos-section">
+            <h4>Fale Conosco</h4>
+            <div class="footer-contato-item">
+                <img src="assets/whatsapp.png" alt="WhatsApp">
+                <span>(51) 3654-1524</span>
+            </div>
+            <div class="footer-contato-item">
+                <img src="assets/whatsapp.png" alt="WhatsApp">
+                <span>(51) 99966-1524</span>
+            </div>
+        </div>
+
+        <div class="footer-endereco-section">
+            <h4>Endereço</h4>
+            <p>Rua Dr. José Athanasio, 205</p>
+            <p>Centro - Triunfo/RS</p>
+            <p>CEP: 95840-000</p>
+            <p class="footer-horario">Segunda a Sexta: 8:30h às 18h</p>
+        </div>
+
+        <div class="footer-social-section">
+            <h4>Redes Sociais</h4>
+            <div class="footer-social-icons">
+                <a href="https://www.facebook.com/sustentareseguros?locale=pt_BR" target="_blank" aria-label="Facebook">
+                    <img src="assets/facebook.png" alt="Facebook">
+                </a>
+                <a href="https://www.instagram.com/sustentaresegurostriunfo/" target="_blank" aria-label="Instagram">
+                    <img src="assets/instagram.png" alt="Instagram">
+                </a>
+                <a href="https://www.linkedin.com/company/sustentare-seguros-filial-triunfo/" target="_blank" aria-label="LinkedIn">
+                    <img src="assets/linkedin.png" alt="LinkedIn">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2025 Sustentare Seguros. Todos os direitos reservados.</p>
+        <p class="footer-cnpj">CNPJ: 04.158.299/0001-68</p>
+    </div>
+</footer>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
