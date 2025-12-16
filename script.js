@@ -3,6 +3,100 @@
 // ==========================================
 console.log("Carrossel automático carregado - rolagem infinita ativa!");
 
+// FUNCIONALIDADE DE ARRASTAR CARROSSÉIS
+function setupDraggableCarousel(carouselSelector) {
+    const carousel = document.querySelector(carouselSelector);
+    const track = carousel.querySelector('.carousel-track, .seguradoras-track');
+    
+    let isDragging = false;
+    let startPos = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+    let startTime = 0;
+
+    // Desabilitar animação CSS e controlar manualmente
+    track.style.animation = 'none';
+    
+    // Velocidade de auto-scroll
+    let autoScrollSpeed = -0.5; // pixels por frame
+    let lastTime = Date.now();
+    
+    function animate() {
+        if (!isDragging) {
+            const now = Date.now();
+            const delta = now - lastTime;
+            lastTime = now;
+            
+            currentTranslate += autoScrollSpeed * (delta / 16);
+            
+            // Loop infinito
+            const trackWidth = track.scrollWidth / 2;
+            if (Math.abs(currentTranslate) > trackWidth) {
+                currentTranslate = 0;
+                prevTranslate = 0;
+            }
+            
+            track.style.transform = `translate3d(${currentTranslate}px, 0, 0)`;
+        }
+        requestAnimationFrame(animate);
+    }
+    
+    animate();
+
+    // Mouse events
+    track.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startPos = e.clientX;
+        prevTranslate = currentTranslate;
+        track.style.cursor = 'grabbing';
+        e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        const currentPosition = e.clientX;
+        const diff = currentPosition - startPos;
+        currentTranslate = prevTranslate + diff;
+        track.style.transform = `translate3d(${currentTranslate}px, 0, 0)`;
+    });
+
+    document.addEventListener('mouseup', () => {
+        if (isDragging) {
+            isDragging = false;
+            track.style.cursor = 'grab';
+        }
+    });
+
+    // Touch events
+    track.addEventListener('touchstart', (e) => {
+        isDragging = true;
+        startPos = e.touches[0].clientX;
+        prevTranslate = currentTranslate;
+        e.preventDefault();
+    });
+
+    track.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        const currentPosition = e.touches[0].clientX;
+        const diff = currentPosition - startPos;
+        currentTranslate = prevTranslate + diff;
+        track.style.transform = `translate3d(${currentTranslate}px, 0, 0)`;
+        e.preventDefault();
+    });
+
+    track.addEventListener('touchend', () => {
+        isDragging = false;
+    });
+
+    // Cursor style
+    track.style.cursor = 'grab';
+    track.style.userSelect = 'none';
+}
+
+// Aplicar aos dois carrosséis
+setupDraggableCarousel('.carousel-esferas');
+setupDraggableCarousel('.seguradoras');
+
 // ==========================================
 // VALIDAÇÃO DO FORMULÁRIO
 // ==========================================
