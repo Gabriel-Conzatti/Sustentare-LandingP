@@ -55,60 +55,67 @@ body {
     overflow: hidden;
     margin-top: 15px;
     padding: 20px 0;
+    -webkit-overflow-scrolling: touch;
 }
 
 .carousel-track {
     display: flex;
     flex-direction: row;
-    gap: 30px;
+    gap: 20px;
     animation: carrossel-scroll 20s linear infinite;
     width: max-content;
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    perspective: 1000px;
+    -webkit-perspective: 1000px;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
-.carousel-track:hover {
-    animation-play-state: paused;
+.carousel-track:active {
+    cursor: grabbing;
 }
 
 @keyframes carrossel-scroll {
     0% {
-        transform: translateX(0);
+        transform: translate3d(0, 0, 0);
     }
     100% {
-        transform: translateX(calc(-50%));
+        transform: translate3d(calc(-50%), 0, 0);
     }
 }
 
 .item-esfera {
     flex: 0 0 auto;
-    width: 180px;
+    width: 150px;
     text-align: center;
 }
 
 .img-esfera {
-    width: 140px;
-    height: 140px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     border: 4px solid #00ff9d;
     object-fit: cover;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     margin: 0 auto;
     display: block;
-}
-
-.img-esfera:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(0, 255, 157, 0.5);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 .item-esfera h3 {
-    margin: 15px 0 10px;
-    font-size: 16px;
+    margin: 12px 0 8px;
+    font-size: 14px;
     font-weight: bold;
 }
 
 .item-esfera p {
-    line-height: 1.5;
-    font-size: 13px;
+    line-height: 1.4;
+    font-size: 12px;
     color: #b8e0ff;
 }
 
@@ -158,6 +165,13 @@ body {
     border-radius: 30px;
     text-decoration: none;
     text-align: center;
+    transition: all 0.3s ease;
+}
+
+.btn-fale:hover {
+    background: #00cc66;
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 255, 132, 0.4);
 }
 
 /* MÉTRICAS */
@@ -206,6 +220,7 @@ body {
     width: 100%;
     overflow: hidden;
     position: relative;
+    -webkit-overflow-scrolling: touch;
 }
 
 .seguradoras-track {
@@ -213,18 +228,28 @@ body {
     gap: 30px;
     animation: seguradoras-scroll 25s linear infinite;
     width: max-content;
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    perspective: 1000px;
+    -webkit-perspective: 1000px;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
-.seguradoras-track:hover {
-    animation-play-state: paused;
+.seguradoras-track:active {
+    cursor: grabbing;
 }
 
 @keyframes seguradoras-scroll {
     0% {
-        transform: translateX(0);
+        transform: translate3d(0, 0, 0);
     }
     100% {
-        transform: translateX(calc(-100% / 3));
+        transform: translate3d(calc(-100% / 3), 0, 0);
     }
 }
 
@@ -236,24 +261,16 @@ body {
     padding: 15px;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 12px;
-    transition: all 0.3s ease;
-}
-
-.seguradora-item:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 255, 157, 0.2);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 .seguradora-item img {
     width: 90px;
     height: auto;
     object-fit: contain;
-    transition: all 0.3s ease;
-}
-
-.seguradora-item:hover img {
-    transform: scale(1.1);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 @media (min-width: 768px) {
@@ -416,12 +433,12 @@ body {
 }
 
 .footer-contatos-section,
-.footer-info-section {
+.footer-endereco-section {
     text-align: center;
 }
 
 .footer-contatos-section h4,
-.footer-info-section h4 {
+.footer-endereco-section h4 {
     font-size: 16px;
     margin-bottom: 12px;
     color: #ffffff;
@@ -443,10 +460,17 @@ body {
     height: 20px;
 }
 
-.footer-info-section p {
+.footer-info-section p,
+.footer-endereco-section p {
     margin: 5px 0;
     font-size: 14px;
     color: #d4f5e5;
+}
+
+.footer-horario {
+    font-size: 11px !important;
+    margin-top: 12px !important;
+    opacity: 0.8;
 }
 
 .footer-social-section {
@@ -519,7 +543,7 @@ body {
     
     .footer-logo-section,
     .footer-contatos-section,
-    .footer-info-section,
+    .footer-endereco-section,
     .footer-social-section {
         text-align: left;
         flex: 1;
