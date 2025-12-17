@@ -1,0 +1,6 @@
+flask
+gunicorn
+SQLAlchemy
+psycopg2-binary
+Flask-Limiter
+flask-talisman
