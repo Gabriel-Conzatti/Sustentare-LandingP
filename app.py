@@ -10,12 +10,14 @@ from flask_talisman import Talisman
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY", "troque-isto-em-producao")
 
-# Exemplo:
-# postgresql+psycopg2://usuario:senha@localhost:5432/landing
 DATABASE_URL = os.getenv("DATABASE_URL")
 
 if not DATABASE_URL:
     raise RuntimeError("Defina a variável de ambiente DATABASE_URL")
+
+# 🔐 FORÇA SSL (Render precisa disso)
+if "sslmode=" not in DATABASE_URL:
+    DATABASE_URL += ("&" if "?" in DATABASE_URL else "?") + "sslmode=require"
 
 engine = create_engine(DATABASE_URL, pool_pre_ping=True)
 
