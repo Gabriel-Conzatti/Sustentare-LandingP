@@ -260,7 +260,7 @@ form.addEventListener('submit', async (e) => {
                 // Mostrar mensagem de sucesso
                 const successMsg = document.createElement('div');
                 successMsg.className = 'success-message';
-                successMsg.textContent = '✓ Orçamento enviado com sucesso! Entraremos em contato em breve.';
+                successMsg.textContent = 'Em breve, nossa equipe entrará em contato.';
                 form.parentElement.insertBefore(successMsg, form);
                 
                 // Limpar formulário
@@ -298,3 +298,4 @@ form.addEventListener('submit', async (e) => {
 });
 
 console.log("Sistema carregado: Carrossel e Validação de Formulário ativos!");
+
