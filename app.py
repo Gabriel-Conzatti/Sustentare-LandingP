@@ -98,5 +98,5 @@ def listar_leads():
     return jsonify(list(rows))
 
 if __name__ == "__main__":
-    init_db()
     app.run()
+
