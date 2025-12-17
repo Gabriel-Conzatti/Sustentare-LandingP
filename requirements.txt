@@ -1,6 +1,7 @@
-flask
-gunicorn
 SQLAlchemy
-psycopg2-binary
-Flask-Limiter
+psycopg[binary]
+Flask
+flask-limiter
 flask-talisman
+gunicorn
+
