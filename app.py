@@ -43,6 +43,7 @@ def init_db():
         """))
 
 # ✅ roda ao iniciar (inclusive no Render)
+# (se quiser evitar derrubar deploy caso o DB demore, posso te passar a versão com try/except)
 init_db()
 
 # =========================================================
@@ -95,5 +96,32 @@ def salvar_lead():
             return jsonify({"erro": "Nome inválido"}), 400
         if not EMAIL_RE.match(email):
             return jsonify({"erro": "Email inválido"}), 400
-        if not TEL_RE.match(tele
-::contentReference[oaicite:0]{index=0}
+        if not TEL_RE.match(telefone):
+            return jsonify({"erro": "Telefone inválido"}), 400
+
+        with engine.begin() as con:
+            con.execute(
+                text("INSERT INTO leads (nome, email, telefone) VALUES (:n, :e, :t)"),
+                {"n": nome, "e": email, "t": telefone}
+            )
+
+        return jsonify({"ok": True})
+
+    except Exception as e:
+        print("ERRO AO SALVAR LEAD:", repr(e))
+        traceback.print_exc()
+        return jsonify({"erro": "Erro interno"}), 500
+
+@app.get("/api/leads")
+def listar_leads():
+    with engine.connect() as con:
+        rows = con.execute(text("""
+            SELECT id, nome, email, telefone
+            FROM leads
+            ORDER BY id DESC
+            LIMIT 500
+        """)).mappings().all()
+    return jsonify(list(rows))
+
+if __name__ == "__main__":
+    app.run()
